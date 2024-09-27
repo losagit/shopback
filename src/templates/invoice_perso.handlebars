@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>{{numero}}</title>
+    <style>
+        html {
+            -webkit-print-color-adjust: exact;
+        }
+
+        .content {
+            height: 100vh;
+            padding-top: 12rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            color: #edacab;
+            background-image: url(https://i.pinimg.com/originals/5c/20/cd/5c20cd82cbc7181ffad871ca8cc9c802.jpg);
+        }
+        .text-color{
+            color: #edacab;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="row">
+            <div class="col-4">
+                <div class="border text-center p-2">
+                    <span class="">LOGO</span>
+                </div>
+            </div>
+            <div class="col-5 text-center">
+                <span>{{emp_razon_social}}</span><br>
+                <span>{{emp_direccion}}</span><br>
+                <span>{{telefono}}</span><br>
+            </div>
+            <div class="col-3">
+                <div class="border text-center p-2">
+                    <span class="">{{tipo_comprobate}}</span>
+                    <span >{{numero}}</span>
+                    <span >{{emp_ruc}}</span>
+                </div>
+            </div>
+        </div>
+        <div class=" m-3">
+            <div class="row mx-1">
+                <div class="col-3 text-right pt-2">
+                    <p for="">Fecha emision</p>
+                    <p for="">Proveedor</p>
+                    <p for="">Ruc</p>
+                    <p for="">Direccion</p>
+                    <p for="">Tipo moneda</p>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control-plaintext text-color" value=": {{fecha}}">
+                    <input type="text" class="form-control-plaintext text-color" value=": {{proveedor}}">
+                    <input type="text" class="form-control-plaintext text-color" value=": {{ruc}}">
+                    <input type="text" class="form-control-plaintext text-color" value=": {{direccion}}">
+                    <input type="text" class="form-control-plaintext text-color" value=": Soles">
+                </div>
+                <div class="col-3 text-right pt-1">
+                    <p for="">Forma de pago:</p>
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control-plaintext text-color" value="contado">
+                </div>
+            </div>
+        </div>
+        <div class="row m-3">
+            <table class="table">
+                <thead style="background-color: #edacab;">
+                    <tr>
+                        <th class="text-white" scope="col">Cantidad</th>
+                        <th class="text-white" scope="col">Descripcion</th>
+                        <th class="text-white" scope="col">Valor unitario</th>
+                        <th class="text-white" scope="col">Importe*</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each detalles}}
+                    <tr>
+                        <td class="text-color">{{cantidad}}.00</td>
+                        <td class="text-color">{{producto}} - {{descripcion}}</td>
+                        <td class="text-color">{{precio_compra}}.00</td>
+                        <td class="text-color">{{importe}}.00</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="row  m-2">
+            <div class="col-9">
+            </div>
+            <div class="col-3">
+                <div class="text-center p-2">
+                    <div class="row">
+                        <div class="col-5 text-right pt-1">
+                            <p for="">SubTotal:</p>
+                            <p for="">IGV:</p>
+                            <p for="">Total:</p>
+                        </div>
+                        <div class="col-7">
+                            <input type="text" class="form-control-plaintext text-color "  value="{{subtotal}}">
+                            <input type="text" class="form-control-plaintext text-color" value="{{igv}}">
+                            <input type="text" class="form-control-plaintext text-color" value="{{total}}.00">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</body>
+
+</html>
